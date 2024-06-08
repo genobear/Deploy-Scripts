@@ -16,8 +16,12 @@ mkdir -p $DEPLOY_DIR
 echo cloning
 git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
+
 # make directory
 mkdir -p $DEPLOY_DIR/logs
+touch $DEPLOY_DIR/logs/debug.log
+touch $DEPLOY_DIR/logs/info.log
+touch $DEPLOY_DIR/logs/warning.log
 
 cat > $DEPLOY_DIR/.env <<EOL
 SOURCE_API_KEY = 'dasda=='
@@ -33,6 +37,9 @@ EOL
 
 # Step 2: Set up a Python virtual environment and install dependencies
 cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+
+#permissions
+chown -R ubuntu:ubuntu $DEPLOY_DIR
 
 
 # Step 3: Create a systemd service file
