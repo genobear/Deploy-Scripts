@@ -11,7 +11,9 @@ SCRIPT_NAME="main.py"
 
 
 # Step 1: Clone the repository
+echo making dir
 mkdir -p $DEPLOY_DIR
+echo cloning
 git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
 # make directory
