@@ -17,22 +17,24 @@ echo cloning
 git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
 
-# make directory
+# make other directory
+echo create logs dir
 mkdir -p $DEPLOY_DIR/logs
 
+echo Create example .env file
 cat > $DEPLOY_DIR/.env <<EOL
 SOURCE_API_KEY = 'dasda=='
-GROUP_NEXUS_LOGIN = "asdsada@nexusplatform.co.uk"
+GROUP_NEXUS_LOGIN = "asdsada@ndomain.co.uk"
 GROUP_NEXUS_PASSWORD = "Iasdasdsadsad"
 MODE = 'TEST'
-EOF
-)
 EOL
 
 # Step 2: Set up a Python virtual environment and install dependencies
+echo Set up a Python virtual environment and install dependencies
 cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
 
 #permissions
+echo Set permissions
 chown -R ubuntu:ubuntu $DEPLOY_DIR
 
 
@@ -57,8 +59,8 @@ WantedBy=multi-user.target
 EOF
 )
 
-# Step 4: Transfer the service file to the remote server
+echo create the service file 
 echo "$SERVICE_FILE" | sudo tee /etc/systemd/system/$SERVICE_NAME.service
 
-# Step 5: Reload systemd, enable and start the service
+echo Reload systemd, enable and start the service
 sudo systemctl daemon-reload && sudo systemctl enable $SERVICE_NAME.service && sudo systemctl start $SERVICE_NAME.service
