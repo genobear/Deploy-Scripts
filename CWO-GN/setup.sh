@@ -18,13 +18,16 @@ git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
 # make directory
 mkdir -p $DEPLOY_DIR/logs
-ENV_FILE = $(cat <<EOF
+
+ENV_FILE=$(cat <<EOF
 SOURCE_API_KEY = 'dasda=='
 GROUP_NEXUS_LOGIN = "asdsada@nexusplatform.co.uk"
 GROUP_NEXUS_PASSWORD = "Iasdasdsadsad"
 MODE = 'TEST'
 EOF
 )
+
+echo "$ENV_FILE" | sudo tee $DEPLOY_DIR/.env
 
 
 # Step 2: Set up a Python virtual environment and install dependencies
