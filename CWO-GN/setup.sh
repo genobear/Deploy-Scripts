@@ -4,19 +4,18 @@
 BRANCH="main"  # or the branch you want to deploy
 REPO_URL="https://github.com/genobear/CWO-to-GN-Permit-Ingestion.git"
 
-DEPLOY_DIR="/usr/local/apps/CWO-GN-sync"
+DEPLOY_DIR="/usr/local/apps/CWO-GN-sync2"
 SERVICE_NAME="FWO-GN-sync"
 SCRIPT_NAME="main.py"
 
-# make directory
-mkdir -p $DEPLOY_DIR
-mkdir -p $DEPLOY_DIR/env
-mkdir -p $DEPLOY_DIR/logs
-mkdir -p $DEPLOY_DIR/deploy
 
 
 # Step 1: Clone the repository
+mkdir -p $DEPLOY_DIR
 git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
+
+# make directory
+mkdir -p $DEPLOY_DIR/logs
 
 # Step 2: Set up a Python virtual environment and install dependencies
 cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
