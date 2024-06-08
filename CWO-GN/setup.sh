@@ -18,9 +18,18 @@ git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
 # make directory
 mkdir -p $DEPLOY_DIR/logs
+ENV_FILE = $(cat <<EOF
+SOURCE_API_KEY = 'dasda=='
+GROUP_NEXUS_LOGIN = "asdsada@nexusplatform.co.uk"
+GROUP_NEXUS_PASSWORD = "Iasdasdsadsad"
+MODE = 'TEST'
+EOF
+)
+
 
 # Step 2: Set up a Python virtual environment and install dependencies
 cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+
 
 # Step 3: Create a systemd service file
 SERVICE_FILE=$(cat <<EOF
