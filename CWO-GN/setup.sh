@@ -4,7 +4,7 @@
 BRANCH="main"  # or the branch you want to deploy
 REPO_URL="https://github.com/genobear/CWO-to-GN-Permit-Ingestion.git"
 
-DEPLOY_DIR="/usr/local/apps/CWO-GN-sync2"
+DEPLOY_DIR="/usr/local/apps/CWO-GN-sync"
 SERVICE_NAME="FWO-GN-sync"
 SCRIPT_NAME="main.py"
 
