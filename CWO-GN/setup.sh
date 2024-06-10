@@ -7,7 +7,7 @@ REPO_URL="https://github.com/genobear/CWO-to-GN-Permit-Ingestion.git"
 DEPLOY_DIR="/usr/local/apps/CWO-GN-sync"
 SERVICE_NAME="FWO-GN-sync"
 SCRIPT_NAME="main.py"
-
+USER_NAME="genobear90"
 
 
 # Step 1: Clone the repository
@@ -35,7 +35,7 @@ cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip instal
 
 #permissions
 echo Set permissions
-chown -R ubuntu:ubuntu $DEPLOY_DIR
+chown -R $USER_NAME:$USER_NAME $DEPLOY_DIR
 
 
 # Step 3: Create a systemd service file
@@ -45,8 +45,8 @@ Description=CWO Live Purchases to Group Nexus Permit Ingestion
 After=network.target
 
 [Service]
-User=ubuntu
-Group=ubuntu
+User=$USER_NAME
+Group=$USER_NAME
 WorkingDirectory=$DEPLOY_DIR
 Environment="PATH=$DEPLOY_DIR/venv/bin"
 ExecStart=$DEPLOY_DIR/venv/bin/python $DEPLOY_DIR/$SCRIPT_NAME
