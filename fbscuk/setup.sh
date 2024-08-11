@@ -60,7 +60,7 @@ ExecStart=$DEPLOY_DIR/venv/bin/uwsgi --ini $DEPLOY_DIR/deploy/uwsgi.ini
 Restart=always
 RestartSec=10
 KillMode=process
-TimeoutSec=infinity
+TimeoutSec=30
 
 [Install]
 WantedBy=multi-user.target
