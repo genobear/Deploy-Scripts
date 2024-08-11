@@ -2,7 +2,7 @@
 # Inital Set Up
 
 - Execute set up script via raw github url
-  - `curl -sL https://raw.githubusercontent.com/genobear/Deploy-Scripts/main/fbscuk/setup.sh | sudo bash -`
+  - `curl -sL https://raw.githubusercontent.com/genobear/Deploy-Scripts/main/fbscuk/setup.sh | bash -`
 
 # Update
 

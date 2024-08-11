@@ -4,13 +4,13 @@
 set -e
 
 # Variables
-BRANCH="main"  # Branch you want to deploy
+BRANCH="main"
 REPO_URL="https://github.com/genobear/fbsc.uk.git"
 SERVICE_NAME="fbscuk"
-DEPLOY_DIR="/usr/local/apps/$SERVICE_NAME"
+DEPLOY_DIR="/home/ubuntu/apps/$SERVICE_NAME"
 SCRIPT_NAME="main.py"
 USER_NAME="ubuntu"
-DOMAIN_NAME="fbsc.uk preprod.fbsc.uk"  # Your domain name for Nginx setup
+DOMAIN_NAME="preprod.fbsc.uk"
 
 # Step 1: Update and Install Required Packages
 echo "Updating system and installing required packages..."
@@ -38,10 +38,6 @@ $DEPLOY_DIR/venv/bin/pip install uwsgi==2.0.26
 cd $DEPLOY_DIR
 $DEPLOY_DIR/venv/bin/python manage.py migrate
 $DEPLOY_DIR/venv/bin/python manage.py collectstatic --noinput
-
-# Step 4: Set permissions
-# echo "Setting permissions..."
-# sudo chown -R $USER_NAME:$USER_NAME $DEPLOY_DIR
 
 # Step 5: Configure systemd
 echo "Creating systemd service..."
