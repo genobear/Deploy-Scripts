@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Stop script on any error
-set -e
+# set -e
 
 # Variables
 BRANCH="main"  # Branch you want to deploy
