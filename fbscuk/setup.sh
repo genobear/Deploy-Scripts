@@ -55,7 +55,7 @@ User=ubuntu
 Group=www-data
 WorkingDirectory=$DEPLOY_DIR
 Environment=\"PATH=$DEPLOY_DIR/venv/bin\"
-ExecStart=$DEPLOY_DIR/venv/bin/uwsgi --ini $DEPLOY_DIR/uwsgi.ini
+ExecStart=$DEPLOY_DIR/venv/bin/uwsgi --ini $DEPLOY_DIR/deploy/uwsgi.ini
 
 Restart=always
 RestartSec=10
