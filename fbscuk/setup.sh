@@ -17,11 +17,11 @@ echo "Updating system and installing required packages..."
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y python3 python3-pip python3-venv git nginx curl
 
-# Step 2: Clone the repository
-echo "Creating deployment directory..."
-mkdir -p $DEPLOY_DIR
-echo "Cloning the repository..."
-git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
+# # Step 2: Clone the repository
+# echo "Creating deployment directory..."
+# mkdir -p $DEPLOY_DIR
+# echo "Cloning the repository..."
+# git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
 
 # Step 3: Set up a Python virtual environment and install dependencies
 echo "Setting up a Python virtual environment and installing dependencies..."
@@ -30,7 +30,7 @@ cd $DEPLOY_DIR && python3 -m venv venv && source venv/bin/activate && pip instal
 
 # Install python packages
 $DEPLOY_DIR/venv/bin/pip install -r $DEPLOY_DIR/requirements.txt
-$DEPLOY_DIR/venv/bin/pip install uwsgi
+$DEPLOY_DIR/venv/bin/pip install uwsgi==2.0.26
 
 # Run migrations and collectstatic
 cd $DEPLOY_DIR
