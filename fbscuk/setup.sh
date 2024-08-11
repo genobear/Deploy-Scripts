@@ -36,8 +36,8 @@ $DEPLOY_DIR/venv/bin/python manage.py migrate
 $DEPLOY_DIR/venv/bin/python manage.py collectstatic --noinput
 
 # Step 4: Set permissions
-echo "Setting permissions..."
-sudo chown -R $USER_NAME:$USER_NAME $DEPLOY_DIR
+# echo "Setting permissions..."
+# sudo chown -R $USER_NAME:$USER_NAME $DEPLOY_DIR
 
 # Step 5: Configure systemd
 echo "Creating systemd service..."
