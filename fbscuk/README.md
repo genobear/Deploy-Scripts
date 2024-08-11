@@ -13,12 +13,5 @@
 
 # Service Management
 
-- `sudo systemctl {restart} fbscuk.service`
-  - stop
-  - start
-  - enable
-  - disable
-
-# Run in terminal
 
 `/usr/local/apps/fbscuk/venv/bin/python /usr/local/apps/fbscuk/manage.py {command}`
