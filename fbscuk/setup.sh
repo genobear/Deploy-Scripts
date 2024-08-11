@@ -18,10 +18,14 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y python3 python3-pip python3-venv git nginx curl
 
 # Step 2: Clone the repository
-# echo "Creating deployment directory..."
-# mkdir -p $DEPLOY_DIR
-# echo "Cloning the repository..."
-# git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
+if [ -d "$DEPLOY_DIR" ]; then
+    echo "Repository already exists. Skipping clone."
+else
+    echo "Creating deployment directory..."
+    mkdir -p $DEPLOY_DIR
+    echo "Cloning the repository..."
+    git clone -b $BRANCH $REPO_URL $DEPLOY_DIR
+fi
 
 # Step 3: Set up a Python virtual environment and install dependencies
 echo "Setting up a Python virtual environment and installing dependencies..."
