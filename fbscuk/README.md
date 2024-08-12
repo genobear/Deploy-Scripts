@@ -9,9 +9,9 @@
 1. Rename the existing example Update.sh file
 2. Modify update script with secrets.
 3. Run Update Script
-   - `sudo sh /usr/local/apps/fbscuk/deploy/update.sh`
+   - `sudo sh /home/ubuntu/apps/fbscuk/deploy/update.sh`
 
 # Service Management
 
 
-`/usr/local/apps/fbscuk/venv/bin/python /usr/local/apps/fbscuk/manage.py {command}`
+`/home/ubuntu/apps/fbscuk/venv/bin/python /home/ubuntu/apps/fbscuk/manage.py {command}`
